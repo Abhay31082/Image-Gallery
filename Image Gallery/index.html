@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Horizontal Scroll Gallery</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+    <div class="gallery-wrap">
+        <img src="/Image Gallery/Images1/backk.jpeg" id="backbtn">
+        <div class="gallery">
+
+            <div>
+                <span><img src="/Image Gallery/Images1/1.jpg"></span>
+                <span><img src="/Image Gallery/Images1/2.jpg"></span>
+                <span><img src="/Image Gallery/Images1/3.jpg"></span>
+            </div>
+            <div>
+                <span><img src="/Image Gallery/Images1/4.jpg"></span>
+                <span><img src="/Image Gallery/Images1/5.jpg"></span>
+                <span><img src="/Image Gallery/Images1/6.jpg"></span>
+            </div>
+            
+        </div>
+        <img src="/Image Gallery/Images1/front.jpeg" id="nextBtn">
+    </div>
+   <script>
+
+    let scrollContainer=document.querySelector(".gallery");
+    let backBtn=document.getElementById("backbtn");
+    let nextBtn=document.getElementById("nextBtn");
+
+    scrollContainer.addEventListener("wheel",(evt)=>{
+        evt.preventDefault();
+        scrollContainer.scrollLeft+=evt.deltaY;
+        scrollContainer.style.scrollBehavior="auto";
+    })
+    nextBtn.addEventListener("click",()=>{
+        scrollContainer.style.scrollBehavior="smooth";
+        scrollContainer.scrollLeft+=660;
+    })
+    
+   backBtn.addEventListener("click",()=>{
+        scrollContainer.style.scrollBehavior="smooth";
+        scrollContainer.scrollLeft-=660;
+    })
+   </script>
+</body>
+</html>
